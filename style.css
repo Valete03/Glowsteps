@@ -1,0 +1,217 @@
+*{
+margin: 0;
+padding: 0;
+border: none;
+outline: none;
+box-sizing: border-box;
+font-family: inherit;
+list-style: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: black;
+    color: #f4f4f4;
+}
+
+
+
+.header{
+    position: fixed;
+    left: 50%;
+    width: 90vw;
+    transform: translateX(-50%);
+    display: grid;
+    grid-template-columns: 1fr 600px;
+    gap: 10%;
+    align-items: center;
+    z-index: 2;
+}
+
+.nav ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+}
+.nav ul li{
+    cursor: pointer;
+text-decoration: none;
+color: white;
+}
+
+.nav ul li:hover{
+    transform: scale(1.09);
+}
+section{
+    background-image: radial-gradient(#310346, #6d0ecc);
+    height: 100vh;
+    position: relative;
+}
+
+.list{
+    width: 70vw;
+    margin: auto; /*centralizar*/ 
+    height: 100%;
+    position: relative;
+}
+.item{
+    position: relative;
+}
+.descricao{
+    position: absolute;
+    left: 20px;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;/*um de baixo de outro*/
+    justify-content: center;
+    text-align: justify;
+    align-items: center;/*tudo no final*/
+    gap: 20px;
+}
+.list .item{
+    position: absolute;
+    inset: 0;/*top,bottom, left e right em o*/
+}
+
+.item .car-image{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 70%;
+    right: -9%;
+}
+
+.car-image img{
+    font-weight: 100px;
+    font-size: 100px;
+}
+
+.content{
+    position: absolute;
+    right: 30px;
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;/*um de baixo de outro*/
+    justify-content: center;
+    align-items: end;/*tudo no final*/
+    gap: 20px;
+}
+
+.content .car-info{
+    font-weight: bold;
+
+}
+
+.content h2{
+    font-size: 5em;
+    border-top: 2px solid white;
+    line-height: 1em;
+}
+
+.content .info{
+    border-radius: 30px;
+    height: 35px;
+    width: 120px;
+    text-transform: uppercase;
+    border: 2px solid black;
+    background-color: #beff1b;
+    color: #000;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.info:hover{
+    transform: scale(1.09);
+}
+
+@media screen  and (max-width:1020px) {
+    /*cabecalho*/
+   
+
+    .header .title{
+    font-size: 24px;
+    }
+
+    .list{
+    width: 20vw;
+}
+
+.descricao{
+    position: absolute;
+    top: 15%;
+    width: 90%;
+    height: 100%;
+    display: flex;
+    text-align: justify;
+}
+.list .item{
+    position: absolute;
+    flex-direction: column;
+    inset: 0;/*top,bottom, left e right em o*/
+}
+
+.item .car-image{
+    top: 20%;
+    transform: translateY(-20%);
+    width: 50%;
+    right: 170%;
+   
+
+}
+
+.car-image img{
+    font-weight: 50px;
+    font-size: 50px;
+}
+
+.content{
+    position: absolute;
+    right: -90%;
+    width: 70%;
+    top: -3%;
+    font-size: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;/*um de baixo de outro*/
+    justify-content: center;
+    align-items: end;/*tudo no final*/
+    gap: 20px;
+}
+
+.content .car-info{
+    font-weight: bold;
+
+}
+
+.content h2{
+    font-size: 5em;
+    border-top: 2px solid white;
+    line-height: 1em;
+}
+
+.content .info{
+    border-radius: 30px;
+    height: 35px;
+    width: 120px;
+    text-transform: uppercase;
+    border: 2px solid black;
+    background-color: #beff1b;
+    color: #000;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.info:hover{
+    transform: scale(1.09);
+}
+
+section{
+    height: 1020px;
+    overflow: hidden scroll;
+}
+
+}
