@@ -72,3 +72,19 @@ function search() {
 
 // EVENTO NO INPUT
 document.querySelector(".search-input").addEventListener("keyup", search);
+
+
+
+//Rediciona para Products if it is mobile
+
+
+
+  function isMobile() {
+    return /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  }
+
+  // Se for celular, redireciona para products.html
+  if (isMobile()) {
+    window.location.href = "products.html";
+  }
+

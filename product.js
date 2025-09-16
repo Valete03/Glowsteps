@@ -1,4 +1,8 @@
 const produtos =[
+     {name:'Suede', price:700, src:'images/pumas.webp'},
+{name:'Suede', price:700, src:'images/pumas.webp'},
+{name:'Suede', price:700, src:'images/pumas.webp'},
+{name:'Suede', price:700, src:'images/pumas.webp'},
 {id:1, name:'Retro 4', price:800, src:'images/retro4.webp'},
  {id:2, name:'Retro 4', price:800, src:'images/retro4.webp'},
 {id:3, name:'Retro 4', price:800, src:'images/retro4.webp'},
@@ -113,7 +117,7 @@ function addToCart(produto) {
       <button class="increase">+</button>
       <span class="quantidade">1</span>
       <button class="decrease">-</button>
-      <button class="delete">x</button>
+      <button class="delete"><i class="bi bi-trash3"></i></button>
     </div>
     <p class="subtotal">Subtotal: ${productPrice}MT</p>`;
 
@@ -185,6 +189,7 @@ fecharMenu.addEventListener('click', ()=>{
     menus.style.display="none";
 });
 
+
 const Nikes = [
     {name:'Retro 4', price:800, src:'images/retro4.webp'},
     {name:'Retro 4', price:800, src:'images/retro4.webp'},
@@ -198,7 +203,9 @@ const Nikes = [
     {name:'Retro 4', price:800, src:'images/retro4.webp'},
     {name:'Retro 4', price:800, src:'images/retro4.webp'},
     {name:'Retro 4', price:800, src:'images/retro4.webp'},
+    
 ];
+
 
 const Adidas = [
     {name:'Campus', price:700, src:'images/campus1.webp'},
@@ -245,6 +252,20 @@ document.querySelector('.Nike').addEventListener('click', () => {
     });
     painelProdutos.innerHTML = newLI1;
 });
+
+// Botão Diversos
+// document.querySelector('.Diversos').addEventListener('click', () => {
+//     let newLI1 = "";
+//      produtos.forEach((item, index) => {
+//         newLI1 += `<div class="card" data-id="${item.name}-${item.price}-${index}">
+//             <img src="${item.src}" alt="" class="image">
+//             <h4 class="title">${item.name}</h4>
+//             <p class="price">${item.price}MT</p>
+//             <button class="add">Add to cart</button>
+//         </div>`;
+//     });
+//     painelProdutos.innerHTML = newLI1;
+// });
 
 // Botão Adidas
 document.querySelector('.Adidas').addEventListener('click', () => {
@@ -311,6 +332,9 @@ document.querySelector('.Adidas').addEventListener('click', () => {
 document.querySelector('.Puma').addEventListener('click', () => {
     renderProducts(Puma);
 });
+
+document.querySelector('.Diversos').addEventListener('click', () => { 
+    renderProducts(produtos); });
 
 
 const shoes = [
@@ -468,3 +492,54 @@ function attachCartEvents(cartBox) {
         atualizarPrecoTotal();
     });
 }
+
+
+ 
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.querySelector(".finalizarcompra");
+  if (!btn) {
+    console.error('Botão .finalizarcompra não encontrado');
+    return;
+  }
+
+  btn.addEventListener('click', (e) => {
+    e.preventDefault(); // evita reload se estiver dentro de um form
+
+    const itens = document.querySelectorAll(".cartBox");
+    if (itens.length === 0) {
+      alert("O carrinho está vazio.");
+      return;
+    }
+
+    let mensagem = "Olá, quero comprar estes produtos:\n\n";
+    let total = 0;
+
+    itens.forEach(item => {
+      const nome = item.querySelector(".nome")?.textContent?.trim() || "Produto";
+      // tenta ler preço do atributo data-preco (o teu HTML já tem isso)
+      let preco = parseFloat(item.querySelector(".price")?.dataset?.preco) || 0;
+      // se não existir data-preco, tenta limpar o texto e converter
+      if (!preco) {
+        const textoPreco = item.querySelector(".price")?.textContent || "0";
+        preco = parseFloat(textoPreco.replace(/[^\d,.-]/g, '').replace(',', '.')) || 0;
+      }
+      const quantidade = parseInt(item.querySelector(".quantidade")?.textContent) || 1;
+      const subtotal = preco * quantidade;
+      total += subtotal;
+
+      mensagem += `📦 ${nome}\nPreço unit.: ${preco}MT\nQtd: ${quantidade}\nSubtotal: ${subtotal}MT\n\n`;
+    });
+
+    mensagem += `💰 Total: ${total}MT`;
+
+    // -> coloque o seu número no formato internacional, sem "+" e sem espaços:
+    const numero = "258873660433";
+
+    // montar link (wa.me funciona bem). alternativa: https://api.whatsapp.com/send?phone=...
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+
+    // abre nova aba; se o popup for bloqueado, redireciona na mesma aba
+    const win = window.open(url, "_blank");
+    if (!win) window.location.href = url;
+  });
+});
