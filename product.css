@@ -130,10 +130,10 @@ body {
 
 .product-list {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     padding-top: 9px;
-    padding-left: 1rem;
+    padding-left: 3rem;
     padding-right: 1rem;
     border-top: 1px solid black;
 
@@ -373,6 +373,7 @@ color: red;
   .product-list{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    padding-left:20px;
   }
 
   .card{
