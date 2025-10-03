@@ -76,15 +76,20 @@ document.querySelector(".search-input").addEventListener("keyup", search);
 
 
 //Rediciona para Products if it is mobile
+function isMobile() {
+  return /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
 
+// Só redireciona automaticamente a primeira vez no celular
+if (isMobile() && !sessionStorage.getItem("redirected")) {
+  sessionStorage.setItem("redirected", "true"); // marca que já redirecionou
+  window.location.href = "products.html";
+}
 
+// Exemplo do botão Homem
+document.getElementById("btnHomem").addEventListener("click", function () {
+  // Vai para home, mesmo no celular
+  window.location.href = "home.html";
+});
 
-  function isMobile() {
-    return /iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  }
-
-  // Se for celular, redireciona para products.html
-  if (isMobile()) {
-    window.location.href = "products.html";
-  }
 
