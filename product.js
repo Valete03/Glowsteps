@@ -667,3 +667,25 @@ window.addEventListener("load", () => {
         localStorage.setItem("primeiraVez", "true");
     }
 });
+
+
+// Pixel meta
+  document.addEventListener("DOMContentLoaded", function() {
+    const botoes = document.querySelectorAll('.add');
+
+    botoes.forEach(function(botao) {
+      botao.addEventListener('click', function() {
+        const nome = this.getAttribute('data-nome');
+        const valor = parseFloat(this.getAttribute('data-valor'));
+
+        fbq('track', 'AddToCart', {
+          value: valor,
+          currency: 'MT',
+          content_name: nome
+        });
+
+        console.log(`Evento AddToCart enviado: ${nome} - R$${valor}`);
+      });
+    });
+  });
+

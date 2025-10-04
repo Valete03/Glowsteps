@@ -4,6 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1146782436884523'); 
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1146782436884523&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- /Meta Pixel -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="product.css">
 </head>
@@ -61,4 +80,19 @@
 
 </body>
 <script src="./product.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const botao = document.querySelector(".finalizarcompra");
+    if (botao) {
+      botao.addEventListener('click', function() {
+        fbq('track', 'Purchase', {
+          value: 2200,   // coloque o valor real do produto
+          currency: 'MZN' // moeda
+        });
+        console.log("Evento Purchase enviado ao Meta Pixel!");
+      });
+    }
+  });
+</script>
+
 </html>
