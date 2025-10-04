@@ -647,7 +647,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mensagem += `💰 Total: ${total}MT`;
 
     // -> coloque o seu número no formato internacional, sem "+" e sem espaços:
-    const numero = "258873660433";
+    const numero = "258879217234";
 
     // montar link (wa.me funciona bem). alternativa: https://api.whatsapp.com/send?phone=...
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
