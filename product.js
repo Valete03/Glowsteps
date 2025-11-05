@@ -64,6 +64,7 @@ const openCart = document.querySelector('.openCart');
 const conteudo = document.querySelector('.conteudo');
 const precoTotalEl = document.querySelector('.preco-total');
 const buyBtn = document.querySelector('.finalizador button');
+ const cartItemsArray = []; // array global
 
 let cartCount = 0;
 const cartCountSpan = document.querySelector('.cart-count');
@@ -212,6 +213,15 @@ function addToCart(produto) {
         cartBox.remove();
         atualizarPrecoTotal();
     });
+
+
+cartItemsArray.push({
+  src: productImg,
+  nome: productTitle,
+  price: productPrice,
+  id:productId
+});
+
 }
 
 const menus = document.querySelector('.menu');
@@ -230,118 +240,117 @@ fecharMenu.addEventListener('click', ()=>{
 });
 
 
-const Nikes = [
-           {name:'NIKE Air force', price:2100, src:'shoes2/nike/jdpt_product_list (8).webp'},
-          {name:'NIKE Air force 1', price:1970, src:'shoes2/nike/jdpt_product_list (9).webp'},
-          {name:'NIKE Air force', price:1970, src:'shoes2/nike/jdpt_product_list (10).webp'},
-          {name:'NIKE Air force', price:1970, src:'shoes2/nike/jdpt_product_list (11).webp'},
-          {name:'NIKE Air force', price:1970, src:'shoes2/nike/jdpt_product_list (12).webp'},
-          {name:'NIKE Air force', price:1970, src:'shoes2/nike/jdpt_product_list (13).webp'},
-          {name:'NIKE Air force', price:1970, src:'shoes2/nike/jdpt_product_list (14).webp'},
-          {name:'NIKE Jordan 4 RM', price:1960, src:'shoes2/nike/jdpt_product_list.webp'},
-    {name:' NIKE SB Dunk', price:1990, src:'shoes2/nike/m45022151126_1.jpg'},
-{name:'NIKE Air MAX', price:1995, src:'shoes2/nike/41hxrUprBwL._SL500.jpg'},
-  {name:'NIKE SB Dunk', price:1999, src:'shoes2/nike/7144310582.jpg'},
-     {name:'NIKE Air Max', price:1995, src:'shoes2/nike/2024120214290719-175.webp'},
-     {name:'NIKE Retro 4', price:2000, src:'shoes2/nike/CT8527-700_2.webp'},
-    {name:'NIKE SB Dunk', price:1990, src:'shoes2/nike/e7481f47ca3bb879d48c258387cf9ba3.jpg'},
-     {name:'NIKE Air Jordan 1', price:1980, src:'shoes2/nike/becce9fc6575f718269f41e4435e4201.jpg'},
-    {name:'NIKE Air force', price:1970, src:'shoes2/nike/jd_727078_b.webp'},
-     {name:'NIKE Jordan MVP', price:1960, src:'shoes2/nike/jd_752326_b.webp'},
-      {name:'NIKE Jordan 4 RM', price:1960, src:'shoes2/nike/jd_754823_b.webp'},
-     {name:'NIKE SB Dunk', price:1990, src:'shoes2/nike/medium_25a35f0c-3fdb-4d59-9007-9cdc6372db4d.jpg'},
-     {name:'NIKE Air MAX', price:1995, src:'shoes2/nike/tenis-esportivo-nike-feminino-air-max-portal-hf3053-011-cinza-hf3053-011-6-.webp'},
-     {name:'NIKE Air FORCE', price:1970, src:'shoes2/nike/jd_030664_b.webp'},
-      {name:'NIKE Shox', price:1980, src:'shoes2/nike/jd_133165_b.webp'},
-      {name:'NIKE Air Jordan 1', price:1980, src:'shoes2/nike/jd_391425_b.webp'},
-       {name:'NIKE Air Jordan 1', price:1980, src:'shoes2/nike/jd_457067_b.webp'},
-      {name:'NIKE Air force', price:1970, src:'shoes2/nike/jd_689803_b.webp'},
- {name:'NIKE Air Jordan 1', price:1980, src:'shoes2/nike/jd_726813_b.webp'},
- {name:'NIKE Air jordan', price:1980, src:'shoes2/nike/jd_727934_b.webp'},
- {name:'NIKE  Air Jordan 1', price:1980, src:'shoes2/nike/jd_752280_b.webp'},
- {name:'NIKE Air Jordan 1', price:1980, src:'shoes2/nike/jd_752281_b.webp'},
- {name:'NIKE Air jordan 1', price:1980, src:'shoes2/nike/jd_752660_b.webp'},
- {name:'NIKE Jordan', price:1980, src:'shoes2/nike/jd_752664_b.webp'},
-   {name:'NIKE AIr max', price:1995, src:'shoes2/nike/jd_763075_b.webp'},
-    {name:'NIKE Air max', price:1995, src:'shoes2/nike/jd_763081_b.webp'},
-     {name:'NIKE Air jordan', price:1980, src:'shoes2/nike/jd_763142_b.webp'},
-      {name:'NIKE Retro 4', price:2000, src:'shoes2/nike/jd_763147_b.webp'},
-       {name:'NIKE Air jordan', price:1980, src:'shoes2/nike/jd_763545_b.webp'},
-        {name:'NIKE Air jordan', price:1980, src:'shoes2/nike/jd_763546_b.webp'},
-         {name:'NIKE Air max', price:1995, src:'shoes2/nike/jd_763831_b.webp'},
-          {name:'NIKE Retro 4', price:2000, src:'shoes2/nike/jd_764400_b.webp'},
-{name:'NIKE Jordan MVP', price:1960, src:'shoes2/nike/jd_764404_b.webp'},
- {name:'NIKE Jordan MVP', price:1960, src:'shoes2/nike/jd_764405_b.webp'},
-  {name:'NIKE Air jordan 1', price:1980, src:'shoes2/nike/jd_765172_b.webp'},
-   {name:'NIKE Air jordan 1', price:1980, src:'shoes2/nike/jd_765173_b.webp'},
-    {name:'NIKE Air force 1', price:1970, src:'shoes2/nike/jd_772995_b.webp'},
-     {name:'NIKE Air jordan', price:1980, src:'shoes2/nike/jd_773071_b.webp'},
-      {name:'NIKE Air jordan', price:1980, src:'shoes2/nike/jd_773072_b.webp'},
-       {name:'NIKE Jordan 4 RM ', price:1960, src:'shoes2/nike/jdpt_product_list (1).webp'},
-        {name:'NIKE  Jordan 4 RM', price:1960, src:'shoes2/nike/jdpt_product_list (2).webp'},
-         {name:'NIKE Air force', price:1970, src:'shoes2/nike/jdpt_product_list (3).webp'},
-          {name:'NIKE Air force', price:1970, src:'shoes2/nike/jdpt_product_list (4).webp'},
-          {name:'NIKE Air force', price:1970, src:'shoes2/nike/jdpt_product_list (5).webp'},
-          {name:'NIKE Ar force', price:1970, src:'shoes2/nike/jdpt_product_list (6).webp'},
-          {name:'NIKE Air force 1', price:1970, src:'shoes2/nike/jdpt_product_list (7).webp'},
-   
-];
 
+const Nikes = [
+  {id: 56, name:'NIKE Air force', price:2100, src:'shoes2/nike/jdpt_product_list (8).webp'},
+  {id: 57, name:'NIKE Air force 1', price:1970, src:'shoes2/nike/jdpt_product_list (9).webp'},
+  {id: 58, name:'NIKE Air force', price:1970, src:'shoes2/nike/jdpt_product_list (10).webp'},
+  {id: 59, name:'NIKE Air force', price:1970, src:'shoes2/nike/jdpt_product_list (11).webp'},
+  {id: 60, name:'NIKE Air force', price:1970, src:'shoes2/nike/jdpt_product_list (12).webp'},
+  {id: 61, name:'NIKE Air force', price:1970, src:'shoes2/nike/jdpt_product_list (13).webp'},
+  {id: 62, name:'NIKE Air force', price:1970, src:'shoes2/nike/jdpt_product_list (14).webp'},
+  {id: 63, name:'NIKE Jordan 4 RM', price:1960, src:'shoes2/nike/jdpt_product_list.webp'},
+  {id: 64, name:' NIKE SB Dunk', price:1990, src:'shoes2/nike/m45022151126_1.jpg'},
+  {id: 65, name:'NIKE Air MAX', price:1995, src:'shoes2/nike/41hxrUprBwL._SL500.jpg'},
+  {id: 66, name:'NIKE SB Dunk', price:1999, src:'shoes2/nike/7144310582.jpg'},
+  {id: 67, name:'NIKE Air Max', price:1995, src:'shoes2/nike/2024120214290719-175.webp'},
+  {id: 68, name:'NIKE Retro 4', price:2000, src:'shoes2/nike/CT8527-700_2.webp'},
+  {id: 69, name:'NIKE SB Dunk', price:1990, src:'shoes2/nike/e7481f47ca3bb879d48c258387cf9ba3.jpg'},
+  {id: 70, name:'NIKE Air Jordan 1', price:1980, src:'shoes2/nike/becce9fc6575f718269f41e4435e4201.jpg'},
+  {id: 71, name:'NIKE Air force', price:1970, src:'shoes2/nike/jd_727078_b.webp'},
+  {id: 72, name:'NIKE Jordan MVP', price:1960, src:'shoes2/nike/jd_752326_b.webp'},
+  {id: 73, name:'NIKE Jordan 4 RM', price:1960, src:'shoes2/nike/jd_754823_b.webp'},
+  {id: 74, name:'NIKE SB Dunk', price:1990, src:'shoes2/nike/medium_25a35f0c-3fdb-4d59-9007-9cdc6372db4d.jpg'},
+  {id: 75, name:'NIKE Air MAX', price:1995, src:'shoes2/nike/tenis-esportivo-nike-feminino-air-max-portal-hf3053-011-cinza-hf3053-011-6-.webp'},
+  {id: 76, name:'NIKE Air FORCE', price:1970, src:'shoes2/nike/jd_030664_b.webp'},
+  {id: 77, name:'NIKE Shox', price:1980, src:'shoes2/nike/jd_133165_b.webp'},
+  {id: 78, name:'NIKE Air Jordan 1', price:1980, src:'shoes2/nike/jd_391425_b.webp'},
+  {id: 79, name:'NIKE Air Jordan 1', price:1980, src:'shoes2/nike/jd_457067_b.webp'},
+  {id: 80, name:'NIKE Air force', price:1970, src:'shoes2/nike/jd_689803_b.webp'},
+  {id: 81, name:'NIKE Air Jordan 1', price:1980, src:'shoes2/nike/jd_726813_b.webp'},
+  {id: 82, name:'NIKE Air jordan', price:1980, src:'shoes2/nike/jd_727934_b.webp'},
+  {id: 83, name:'NIKE  Air Jordan 1', price:1980, src:'shoes2/nike/jd_752280_b.webp'},
+  {id: 84, name:'NIKE Air Jordan 1', price:1980, src:'shoes2/nike/jd_752281_b.webp'},
+  {id: 85, name:'NIKE Air jordan 1', price:1980, src:'shoes2/nike/jd_752660_b.webp'},
+  {id: 86, name:'NIKE Jordan', price:1980, src:'shoes2/nike/jd_752664_b.webp'},
+  {id: 87, name:'NIKE AIr max', price:1995, src:'shoes2/nike/jd_763075_b.webp'},
+  {id: 88, name:'NIKE Air max', price:1995, src:'shoes2/nike/jd_763081_b.webp'},
+  {id: 89, name:'NIKE Air jordan', price:1980, src:'shoes2/nike/jd_763142_b.webp'},
+  {id: 90, name:'NIKE Retro 4', price:2000, src:'shoes2/nike/jd_763147_b.webp'},
+  {id: 91, name:'NIKE Air jordan', price:1980, src:'shoes2/nike/jd_763545_b.webp'},
+  {id: 92, name:'NIKE Air jordan', price:1980, src:'shoes2/nike/jd_763546_b.webp'},
+  {id: 93, name:'NIKE Air max', price:1995, src:'shoes2/nike/jd_763831_b.webp'},
+  {id: 94, name:'NIKE Retro 4', price:2000, src:'shoes2/nike/jd_764400_b.webp'},
+  {id: 95, name:'NIKE Jordan MVP', price:1960, src:'shoes2/nike/jd_764404_b.webp'},
+  {id: 96, name:'NIKE Jordan MVP', price:1960, src:'shoes2/nike/jd_764405_b.webp'},
+  {id: 97, name:'NIKE Air jordan 1', price:1980, src:'shoes2/nike/jd_765172_b.webp'},
+  {id: 98, name:'NIKE Air jordan 1', price:1980, src:'shoes2/nike/jd_765173_b.webp'},
+  {id: 99, name:'NIKE Air force 1', price:1970, src:'shoes2/nike/jd_772995_b.webp'},
+  {id: 100, name:'NIKE Air jordan', price:1980, src:'shoes2/nike/jd_773071_b.webp'},
+  {id: 101, name:'NIKE Air jordan', price:1980, src:'shoes2/nike/jd_773072_b.webp'},
+  {id: 102, name:'NIKE Jordan 4 RM ', price:1960, src:'shoes2/nike/jdpt_product_list (1).webp'},
+  {id: 103, name:'NIKE  Jordan 4 RM', price:1960, src:'shoes2/nike/jdpt_product_list (2).webp'},
+  {id: 104, name:'NIKE Air force', price:1970, src:'shoes2/nike/jdpt_product_list (3).webp'},
+  {id: 105, name:'NIKE Air force', price:1970, src:'shoes2/nike/jdpt_product_list (4).webp'},
+  {id: 106, name:'NIKE Air force', price:1970, src:'shoes2/nike/jdpt_product_list (5).webp'},
+  {id: 107, name:'NIKE Ar force', price:1970, src:'shoes2/nike/jdpt_product_list (6).webp'},
+  {id: 108, name:'NIKE Air force 1', price:1970, src:'shoes2/nike/jdpt_product_list (7).webp'},
+];
 
 const Adidas = [
-    {name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jd_619310_c.webp'},
-    {name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jd_619586_b.webp'},
-     {name:'ADIDAS Samba', price:1980, src:'shoes2/Adidas/Samba_XLG_Shoes_Black_IE1379_04_standard.avif'},
-    {name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jd_691345_c.webp'},
-    {name:'ADIDAS Samba', price:1980, src:'shoes2/Adidas/jdpt_product_list (4).webp'},
-    {name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (5).webp'},
-    {name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (6).webp'},
-      {name:'ADIDAS Spezial', price:1970, src:'shoes2/Adidas/spezial.jpg'},
-    {name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (7).webp'},
-    {name:'ADIDAS Samba', price:1980, src:'shoes2/Adidas/Samba_OG_Shoes_White_ID0478_01_standard.jpg'},
-    {name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (8).webp'},
-    {name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (9).webp'},
-    {name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (10).webp'},
-    {name:'ADIDAS Galaxy OG', price:1980, src:'shoes2/Adidas/jdpt_product_list (11).webp'},
-     {name:'ADIDAS Spezial', price:1970, src:'shoes2/Adidas/Handball_Spezial_Shoes_Blue_IF7087_15_hover_standard.avif'},
-    {name:'ADIDAS Superstar', price:1990, src:'shoes2/Adidas/jdpt_product_list (12).webp'},
-    {name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (13).webp'},
-    {name:'ADIDAS Superstar', price:1990, src:'shoes2/Adidas/jdpt_product_list (14).webp'},
-    {name:'ADIDAS Spezial', price:1970, src:'shoes2/Adidas/jdpt_product_list (15).webp'},
-    {name:'ADIDAS Superstar', price:1990, src:'shoes2/Adidas/jdpt_product_list (16).webp'},
-    {name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (17).webp'},
-    {name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (18).webp'},
-     {name:'ADIDAS Superstar', price:1990, src:'shoes2/Adidas/Superstar_ADV_Shoes_White_IE0669_04_standard c.avif'},
-      {name:'ADIDAS Superstar', price:1990, src:'shoes2/Adidas/Superstar_II_Shoes_Black_JI3538_04_standard.avif'},
-       {name:'ADIDAS Superstar', price:1990, src:'shoes2/Adidas/Superstar_II_Shoes_White_JI0080_04_standard.avif'},
-    {name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (19).webp'},
-    {name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (20).webp'},
-    {name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (21).webp'},
-    {name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (22).webp'},
-      {name:'ADIDAS Spezial', price:1970, src:'shoes2/Adidas/Handball_Spezial_Shoes_Black_DB3021_00_plp_standard.avif'},
-    {name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (23).webp'},
-    {name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (24).webp'},
-    {name:'ADIDAS Samba', price:1980, src:'shoes2/Adidas/jdpt_product_list (25).webp'},
-    {name:'ADIDAS Samba', price:1980, src:'shoes2/Adidas/jdpt_product_list.webp'},
+  {id: 109, name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jd_619310_c.webp'},
+  {id: 110, name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jd_619586_b.webp'},
+  {id: 111, name:'ADIDAS Samba', price:1980, src:'shoes2/Adidas/Samba_XLG_Shoes_Black_IE1379_04_standard.avif'},
+  {id: 112, name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jd_691345_c.webp'},
+  {id: 113, name:'ADIDAS Samba', price:1980, src:'shoes2/Adidas/jdpt_product_list (4).webp'},
+  {id: 114, name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (5).webp'},
+  {id: 115, name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (6).webp'},
+  {id: 116, name:'ADIDAS Spezial', price:1970, src:'shoes2/Adidas/spezial.jpg'},
+  {id: 117, name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (7).webp'},
+  {id: 118, name:'ADIDAS Samba', price:1980, src:'shoes2/Adidas/Samba_OG_Shoes_White_ID0478_01_standard.jpg'},
+  {id: 119, name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (8).webp'},
+  {id: 120, name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (9).webp'},
+  {id: 121, name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (10).webp'},
+  {id: 122, name:'ADIDAS Galaxy OG', price:1980, src:'shoes2/Adidas/jdpt_product_list (11).webp'},
+  {id: 123, name:'ADIDAS Spezial', price:1970, src:'shoes2/Adidas/Handball_Spezial_Shoes_Blue_IF7087_15_hover_standard.avif'},
+  {id: 124, name:'ADIDAS Superstar', price:1990, src:'shoes2/Adidas/jdpt_product_list (12).webp'},
+  {id: 125, name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (13).webp'},
+  {id: 126, name:'ADIDAS Superstar', price:1990, src:'shoes2/Adidas/jdpt_product_list (14).webp'},
+  {id: 127, name:'ADIDAS Spezial', price:1970, src:'shoes2/Adidas/jdpt_product_list (15).webp'},
+  {id: 128, name:'ADIDAS Superstar', price:1990, src:'shoes2/Adidas/jdpt_product_list (16).webp'},
+  {id: 129, name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (17).webp'},
+  {id: 130, name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (18).webp'},
+  {id: 131, name:'ADIDAS Superstar', price:1990, src:'shoes2/Adidas/Superstar_ADV_Shoes_White_IE0669_04_standard c.avif'},
+  {id: 132, name:'ADIDAS Superstar', price:1990, src:'shoes2/Adidas/Superstar_II_Shoes_Black_JI3538_04_standard.avif'},
+  {id: 133, name:'ADIDAS Superstar', price:1990, src:'shoes2/Adidas/Superstar_II_Shoes_White_JI0080_04_standard.avif'},
+  {id: 134, name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (19).webp'},
+  {id: 135, name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (20).webp'},
+  {id: 136, name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (21).webp'},
+  {id: 137, name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (22).webp'},
+  {id: 138, name:'ADIDAS Spezial', price:1970, src:'shoes2/Adidas/Handball_Spezial_Shoes_Black_DB3021_00_plp_standard.avif'},
+  {id: 139, name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (23).webp'},
+  {id: 140, name:'ADIDAS Campus', price:1990, src:'shoes2/Adidas/jdpt_product_list (24).webp'},
+  {id: 141, name:'ADIDAS Samba', price:1980, src:'shoes2/Adidas/jdpt_product_list (25).webp'},
+  {id: 142, name:'ADIDAS Samba', price:1980, src:'shoes2/Adidas/jdpt_product_list.webp'},
 ];
 
-const Puma = [
-{name:'PUMA Speedcat', price:1980, src:'shoes2/Adidas/jdpt_product_list (26).webp'},
-    {name:'PUMA Speedcat', price:1980, src:'shoes2/PUMA/jdpt_product_list (27).webp'},
-    {name:'PUMA Speedcat', price:1980, src:'shoes2/PUMA/jdpt_product_list (28).webp'},
-    {name:'PUMA Palermo', price:1970, src:'shoes2/PUMA/jdpt_product_list (29).webp'},
-    {name:'PUMA Leopard arizona', price:1990, src:'shoes2/PUMA/jdpt_product_list (30).webp'},
-    {name:'PUMA Speedcat', price:1980, src:'shoes2/PUMA/jdpt_product_list (31).webp'},
-     {name:'PUMA Suede', price:1990, src:'shoes2/PUMA/verdao.jpg'},
-    {name:'PUMA Speedcat', price:1980, src:'shoes2/PUMA/jdpt_product_list (33).webp'},
-    {name:'PUMA Speedcat', price:1980, src:'shoes2/PUMA/jdpt_product_list (34).webp'},
-    {name:'PUMA Suede', price:1990, src:'shoes2/PUMA/Suede-XL-Sneakers (1).avif'},
-    {name:'PUMA Suede', price:1990, src:'shoes2/PUMA/suede red.jpg'},
-    {name:'PUMA Suede', price:1990, src:'shoes2/PUMA/Suede-XL-Sneakers white.avif'},
-    {name:'PUMA Suede', price:1990, src:'shoes2/PUMA/Suede-XL-Sneakers.avif'},
-     {name:'PUMA Palermo', price:1970, src:'shoes2/PUMA/jdpt_product_list (32).webp'},
-]
 
+const Puma = [
+  {id: 143, name:'PUMA Speedcat', price:1980, src:'shoes2/Adidas/jdpt_product_list (26).webp'},
+  {id: 144, name:'PUMA Speedcat', price:1980, src:'shoes2/PUMA/jdpt_product_list (27).webp'},
+  {id: 145, name:'PUMA Speedcat', price:1980, src:'shoes2/PUMA/jdpt_product_list (28).webp'},
+  {id: 146, name:'PUMA Palermo', price:1970, src:'shoes2/PUMA/jdpt_product_list (29).webp'},
+  {id: 147, name:'PUMA Leopard arizona', price:1990, src:'shoes2/PUMA/jdpt_product_list (30).webp'},
+  {id: 148, name:'PUMA Speedcat', price:1980, src:'shoes2/PUMA/jdpt_product_list (31).webp'},
+  {id: 149, name:'PUMA Suede', price:1990, src:'shoes2/PUMA/verdao.jpg'},
+  {id: 150, name:'PUMA Speedcat', price:1980, src:'shoes2/PUMA/jdpt_product_list (33).webp'},
+  {id: 151, name:'PUMA Speedcat', price:1980, src:'shoes2/PUMA/jdpt_product_list (34).webp'},
+  {id: 152, name:'PUMA Suede', price:1990, src:'shoes2/PUMA/Suede-XL-Sneakers (1).avif'},
+  {id: 153, name:'PUMA Suede', price:1990, src:'shoes2/PUMA/suede red.jpg'},
+  {id: 154, name:'PUMA Suede', price:1990, src:'shoes2/PUMA/Suede-XL-Sneakers white.avif'},
+  {id: 155, name:'PUMA Suede', price:1990, src:'shoes2/PUMA/Suede-XL-Sneakers.avif'},
+  {id: 156, name:'PUMA Palermo', price:1970, src:'shoes2/PUMA/jdpt_product_list (32).webp'},
+];
 
 const painelProdutos = document.querySelector('.product-list');
 
@@ -641,53 +650,49 @@ function attachCartEvents(cartBox) {
 
 
  
-document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.querySelector(".finalizarcompra");
-  if (!btn) {
-    console.error('Botão .finalizarcompra não encontrado');
-    return;
-  }
 
-  btn.addEventListener('click', (e) => {
-    e.preventDefault(); // evita reload se estiver dentro de um form
 
-    const itens = document.querySelectorAll(".cartBox");
-    if (itens.length === 0) {
-      alert("O carrinho está vazio.");
-      return;
-    }
 
-    let mensagem = "Olá, quero comprar estes produtos:\n\n";
-    let total = 0;
 
-    itens.forEach(item => {
-      const nome = item.querySelector(".nome")?.textContent?.trim() || "Produto";
-      // tenta ler preço do atributo data-preco (o teu HTML já tem isso)
-      let preco = parseFloat(item.querySelector(".price")?.dataset?.preco) || 0;
-      // se não existir data-preco, tenta limpar o texto e converter
-      if (!preco) {
-        const textoPreco = item.querySelector(".price")?.textContent || "0";
-        preco = parseFloat(textoPreco.replace(/[^\d,.-]/g, '').replace(',', '.')) || 0;
-      }
-      const quantidade = parseInt(item.querySelector(".quantidade")?.textContent) || 1;
-      const subtotal = preco * quantidade;
-      total += subtotal;
+// Finalizar compra.info
+// fechar cart
 
-      mensagem += `📦 ${nome}\nPreço unit.: ${preco}MT\nQtd: ${quantidade}\nSubtotal: ${subtotal}MT\n\n`;
-    });
+const closeinfo1= document.querySelector(".closeinfo1");
+const subimtproduct=document.querySelector(".subimtproduct")
+const productssubmited=document.querySelector(".productssubmited")
+ const btn = document.querySelector(".finalizarcompra");
+ const readyproduct=document.querySelectorAll(".readyproduct")
 
-    mensagem += `💰 Total: ${total}MT`;
 
-    // -> coloque o seu número no formato internacional, sem "+" e sem espaços:
-    const numero = "258879217234";
+// renderizar produtos
+btn.addEventListener('click', () => {
+    document.querySelector('.subimtproduct').style.display = 'block';
 
-    // montar link (wa.me funciona bem). alternativa: https://api.whatsapp.com/send?phone=...
-    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
-
-    // abre nova aba; se o popup for bloqueado, redireciona na mesma aba
-    const win = window.open(url, "_blank");
-    if (!win) window.location.href = url;
+  let newdiv = "";
+  cartItemsArray.forEach((item, index) => {
+    newdiv += `
+      <div class="readyproduct">
+        <img src="${item.src}" alt="">
+        <h2 class="infoname">${item.nome}</h2>
+        <h2 class="priceinfo">${item.price}</h2>
+        <h2 class="idproduct">${item.id}</h2>
+      </div>
+    `;
   });
+  productssubmited.innerHTML = newdiv;
+}); 
+
+
+
+closeinfo1.addEventListener("click", () => {
+    const readyProducts = document.querySelectorAll(".readyproduct");
+    readyProducts.forEach(el => el.remove());
+
+    subimtproduct.style.display = "none";
+
+    cartItemsArray.length = 0;
+
+    console.log("Array limpo:", cartItemsArray);
 });
 
 
