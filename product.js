@@ -651,9 +651,6 @@ function attachCartEvents(cartBox) {
 
  
 
-
-
-
 // Finalizar compra.info
 // fechar cart
 
